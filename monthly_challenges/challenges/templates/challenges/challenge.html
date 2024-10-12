@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% comment %}title of challenges page{% endcomment %}
+{% block page_title %}
+  {{ month|title }} challenges
+{% endblock %}
+
+{% comment %}page content{% endcomment %}
+{% block contents %}
+  {% include './includes/header.html' %}
+  {% if content != None %}
+    <h2>{{ month|title }}</h2>
+    <h1>{{ content }}</h1>
+  {% else %}
+    <h1>No challenges are available</h1>
+  {% endif %}
+{% endblock %}

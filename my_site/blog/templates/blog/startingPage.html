@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pageTitle %}
+    Starting Page
+{% endblock %}
+{% block pageStyle %}
+    <link rel="stylesheet" href="{% static 'blog/startingPage.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/posts.css' %}">
+{% endblock %}
+{% block pageContent %}
+   
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/max.png' %}" alt="Pratham's image">
+            <h2>Pratham's Blogs</h2>
+        </header>
+        <p>Hi, I'm Pratham Patel, and I love to blog about tech and the world.</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+            {% include "blog/includes/posts.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my blog where I share insights on technology, nature, and much more!</p>
+        <p>Feel free to explore and leave your thoughts!</p>
+    </section>
+{% endblock %}
