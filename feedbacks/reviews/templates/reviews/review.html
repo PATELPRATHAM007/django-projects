@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}
+Review Page
+{% endblock %}
+{% block PageStyleSheet %}
+<link rel="stylesheet" href="{% static '' %}">
+{% endblock %}
+{% block pageContent %}
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Enter Username:   </label>
+    <input type="text" id="username" name="username"><br><br>
+    <button>send</button>
+</form>
+{% endblock %}
