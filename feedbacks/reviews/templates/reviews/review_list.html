@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}
+review list
+{% endblock %}
+{% block PageStyleSheet %}
+<link rel="stylesheet" href="{% static '' %}">
+{% endblock %}
+{% block pageContent %}
+<ul>
+    {% for review in reviews %}
+    <a href="{% url "review-detail-page" pk=review.id %}">
+        <li>user name : {{review.user_name}} ( rating :  {{review.rating}} )</li>
+    </a>
+        
+        
+    {% endfor %}
+</ul>
+{% endblock %}

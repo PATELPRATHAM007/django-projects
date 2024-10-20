@@ -2,13 +2,16 @@
 {% load static %}
 
 {% block pageTitle %}
-thank you
+review details
 {% endblock %}
+
 {% block PageStyleSheet %}
 <link rel="stylesheet" href="{% static '' %}">
 {% endblock %}
+
 {% block pageContent %}
-{% comment %} <a href="{% url "review-list" %}">review lists</a> {% endcomment %}
-<h1>thank you so much</h1>
-<p>{{message}}</p>
+
+<h1>user name : {{review.user_name}}</h1>
+<p>rating : {{review.rating}} </p>
+<p>message :{{review.review_text}} </p>
 {% endblock %}

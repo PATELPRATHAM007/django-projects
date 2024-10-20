@@ -2,16 +2,25 @@
 {% load static %}
 
 {% block pageTitle %}
-Review Page
+  Review Page
 {% endblock %}
-{% block PageStyleSheet %}
-<link rel="stylesheet" href="{% static '' %}">
-{% endblock %}
+
+{% comment %} {% block pageStlyeSheet %}
+  <link rel="stylesheet" href="{% static '' %}" />
+{% endblock %} {% endcomment %}
+
 {% block pageContent %}
-<form method="post">
+  <a href="{% url "review-list" %}">all reviews</a>
+  <form action="/" method="post">
     {% csrf_token %}
-    <label for="username">Enter Username:   </label>
-    <input type="text" id="username" name="username"><br><br>
+    {% for field in form %} 
+    <div class="form-control {% if field.errors %} errors {% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    
     <button>send</button>
-</form>
+  </form>
 {% endblock %}
